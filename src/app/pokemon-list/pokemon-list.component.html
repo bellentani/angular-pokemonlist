@@ -1,0 +1,25 @@
+<p>Pokemon: {{Pokemons.count}}</p>
+<div class="containter-fluid">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Conteudo header
+                </div>
+                <div class="card-body">
+                    Conteudo Body
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul>
+    <li *ngFor="let pokemons of Pokemons.results">
+        <a href="{{pokemons.url}}">
+            <b>{{pokemons?.id}}</b> {{pokemons?.name}} / {{pokemons?.informations?.name}}
+            <ng-container *ngIf="pokemons.informations != null">
+                    <img *ngFor="let sprite of pokemons.informations.sprites; let i = index" [src]="pokemons?.informations?.sprites[i]?.imagePath" alt="">
+            </ng-container>
+        </a>
+    </li>
+</ul>

@@ -10,6 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class RestApiService {
 
   apiURL = 'https://pokeapi.co/api/v2/';
+  spriteURL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
 
   constructor(private http: HttpClient) { }
 
@@ -21,8 +22,8 @@ export class RestApiService {
   }  
 
   // HttpClient API get() method => Fetch Pokemons list
-  getPokemons(): Observable<Pokemon> {
-    return this.http.get<Pokemon>(this.apiURL + '/pokemon')
+  listPokemons(offset: number, limit: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(this.apiURL + `pokemon?offset=${offset}&limit=${limit}`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -30,12 +31,41 @@ export class RestApiService {
   }
 
   // HttpClient API get() method => Fetch Pokemon
-  getPokemon(id): Observable<Pokemon> {  
-    return this.http.get<Pokemon>(this.apiURL + '/pokemon/' + id)
-    .pipe(
-      retry(1),
-      catchError(this.handleError)
-    )
+  async getPokemon(id: number) {
+    var response:any = await this.http.get(`${this.apiURL}pokemon/${id}/`)
+      .toPromise();
+
+      console.log(id);
+      //let response = JSON.parse(JSON.stringify(res._body || null ));
+      let pokemon = new Pokemon();
+
+      console.log(pokemon);
+      pokemon.name = response.name;
+      pokemon.id = response.id;
+
+      response.types.forEach((type) => {
+        pokemon.types.push(type.type.name);
+      });
+
+      response.stats.forEach((stat) => {
+        pokemon.stats.push({
+          name: stat.stat.name,
+          value: stat.base_stat
+        });
+      });
+
+      for (let sprite in response.sprites) {
+        if (response.sprites[sprite]) {
+          pokemon.sprites.push({
+            name: sprite,
+            imagePath: response.sprites[sprite]
+          });
+        }
+      }
+
+      return pokemon;
+ 
+      //});
   }
   
   // Error handling 
