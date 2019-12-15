@@ -34,13 +34,22 @@ export class PokemonListComponent implements OnInit {
         
         console.log('id: ', sumId); // the name of the current key.
         console.log('name: ', pokemon.name); // the value of the current key.
+        //console.log('sprite default: ', spriteDefault); // the value of the current key.
 
         pokemonList.push(sumId, pokemon.name, pokemon.sprites, pokemon.types );
         
-
         let pokemonInfo = await this.restApi.getPokemon(sumId);
 
         pokemon['informations'] = pokemonInfo;
+
+        function defaultSprite(pokemonSprite) { 
+          return pokemonSprite.name === 'front_default';
+        }
+        
+        const pokemonDefaultSprite = pokemonInfo.sprites.find(defaultSprite);
+
+        pokemon['default_sprite'] = pokemonDefaultSprite;
+        console.log(pokemonDefaultSprite);
         
         // const entries = Object.entries(val);
         
@@ -51,5 +60,12 @@ export class PokemonListComponent implements OnInit {
       });
       console.log(this.Pokemons.results);
     })
+  }
+
+  //Set value to pagination
+  values = '';
+
+  SetPokemonCount(values) {
+    console.log(values)
   }
 }
