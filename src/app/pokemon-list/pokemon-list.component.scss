@@ -1,0 +1,186 @@
+@import '../../assets/scss/variables';
+
+.badge {
+    &.small {
+        font-size: 60%;
+    }
+}
+
+.poke-type {
+	padding: .25em .5em;
+    display: inline-block;
+    font-size: .7rem;
+	border-radius: .5em;
+	color: #FFF;
+	background-color: #68A090;
+    border: 1px solid #44685E;
+    text-transform: uppercase;
+    
+    &--normal {
+        background-color: $color-normal;
+        border: 1px solid darken($color-normal, 20%);
+    }
+    
+    &--fire {
+        background-color: $color-fire;
+        border: 1px solid darken($color-fire, 20%);
+    }
+    
+    &--water {
+        background-color: $color-water;
+        border: 1px solid darken($color-water, 20%);
+    }
+    
+    &--electric {
+        background-color: $color-electric;
+        border: 1px solid darken($color-electric, 20%);
+    }
+    
+    &--grass {
+        background-color: $color-grass;
+        border: 1px solid darken($color-grass, 20%);
+    }
+    
+    &--ice {
+        background-color: $color-ice;
+        border: 1px solid darken($color-ice, 20%);
+    }
+    
+    &--ground {
+        background-color: $color-ground;
+        border: 1px solid darken($color-ground, 20%);
+    }
+    
+    &--flying {
+        background-color: $color-flying;
+        border: 1px solid darken($color-flying, 20%);
+    }
+    
+    &--ghost {
+        background-color: $color-ghost;
+        border: 1px solid darken($color-ghost, 20%);
+    }
+    
+    &--rock {
+        background-color: $color-rock;
+        border: 1px solid darken($color-rock, 20%);
+    }
+    
+    &--fighting {
+        background-color: $color-fighting;
+        border: 1px solid darken($color-fighting, 20%);
+    }
+    
+    &--poison {
+        background-color: $color-poison;
+        border: 1px solid darken($color-poison, 20%);
+    }
+    
+    &--psychic {
+        background-color: $color-psychic;
+        border: 1px solid darken($color-psychic, 20%);
+    }
+    
+    &--bug {
+        background-color: $color-bug;
+        border: 1px solid darken($color-bug, 20%);
+    }
+    
+    &--dark {
+        background-color: $color-dark;
+        border: 1px solid darken($color-dark, 20%);
+    }
+    
+    &--steel {
+        background-color: $color-steel;
+        border: 1px solid darken($color-steel, 20%);
+    }
+    
+    &--dragon {
+        background-color: $color-dragon;
+        border: 1px solid darken($color-dragon, 20%);
+    }
+}
+.bg {
+    &--normal {
+        background-color: $color-normal;
+    }
+    &--fire {
+        background-color: $color-fire;
+    }
+    &--water {
+        background-color: $color-water;
+    }
+    &--electric {
+        background-color: $color-electric;
+    }
+    &--grass {
+        background-color: $color-grass;
+    }
+    &--ice {
+        background-color: $color-ice;
+    }
+    &--ground {
+        background-color: $color-ground;
+    }
+    &--flying {
+        background-color: $color-flying;
+    }
+    &--ghost {
+        background-color: $color-ghost;
+    }
+    &--rock {
+        background-color: $color-rock;
+    }
+    &--fighting {
+        background-color: $color-fighting;
+    }
+    &--poison {
+        background-color: $color-poison;
+    }
+    &--psychic {
+        background-color: $color-psychic;
+    }
+    &--bug {
+        background-color: $color-bug;
+    }
+    &--dark {
+        background-color: $color-dark;
+    }
+    &--steel {
+        background-color: $color-steel;
+    }
+    &--dragon {
+        background-color: $color-dragon;
+    }
+}
+.poke-sprite {
+    display: inline-block;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50rem;
+    background-color: #ebebeb;  
+}
+
+
+.card {
+    border-color: #f1f1f1;
+    box-shadow: 0 0 1em 0 rgba(#999999, .2);
+    color: #999999;
+    opacity: 1;
+    transition: all .35s ease-in-out;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 0 0 transparent;
+        text-decoration: none;
+        opacity: .8;
+        transition: all .35s ease-in-out;
+    }
+
+    &-header,
+    &-footer {
+        border: 0;
+    }
+    
+}

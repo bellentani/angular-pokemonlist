@@ -23,20 +23,31 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-3" *ngFor="let pokemons of Pokemons.results">
-            <a  href="{{pokemons.url}}" class="card">
-                <div class="card-header">
-                    <h4 class="card-title">
-                        <span class="badge badge-xs badge-pill">{{pokemons?.informations?.id}}</span>{{pokemons?.informations?.name | titlecase }}
+            <a href="{{pokemons.url}}" class="card">
+                <div class="card-header bg--{{pokemons?.informations?.types[0]}} text-light">
+                    <h4 class="card-title mb-0">
+                        <span class="badge small badge-light badge-pill">{{pokemons?.informations?.id}}</span>
+                        {{pokemons?.informations?.name | titlecase }}
                     </h4>
                 </div>
                 <div class="card-body">
                     <ng-container *ngIf="pokemons.informations != null">
-                        <img [src]="pokemons?.default_sprite?.imagePath" [alt]="pokemons?.informations?.name | titlecase">
+                        <div class="poke-sprite">
+                            <img [src]="pokemons?.default_sprite?.imagePath"
+                                [alt]="pokemons?.informations?.name | titlecase">
+                        </div>
                         <p><b>Description:</b> {{pokemons?.detail?.flavor_text_entries?.flavor_text}}</p>
                         <!-- <img *ngFor="let sprite of pokemons.informations.sprites; let i = index" [src]="pokemons?.informations?.sprites[i]?.imagePath" alt=""> -->
                     </ng-container>
                 </div>
-                <div class="card-footer"></div>
+                <div class="card-footer">
+                    <ul class="list-inline mb-0" *ngIf="pokemons.informations != null">
+                        <li class="list-inline-item" *ngFor="let type of pokemons.informations.types; let i = index">
+                            <span
+                                class="poke-type poke-type--{{pokemons?.informations?.types[i]}}">{{pokemons?.informations?.types[i]}}</span>
+                        </li>
+                    </ul>
+                </div>
             </a>
         </div>
     </div>
