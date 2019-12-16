@@ -48,11 +48,11 @@ export class PokemonListComponent implements OnInit {
 
         //console.log(pokemon['detail']);
 
-        function defaultSprite(pokemonSprite) { 
-          return pokemonSprite.name === 'front_default';
-        }
+        // function defaultSprite(pokemonSprite) { 
+        //   return pokemonSprite.name === 'front_default';
+        // }
         
-        const pokemonDefaultSprite = pokemonInfo.sprites.find(defaultSprite);
+        const pokemonDefaultSprite = pokemonInfo.sprites.find((defaultSprite) => defaultSprite.name === 'front_default');
 
         pokemon['default_sprite'] = pokemonDefaultSprite;
         //console.log(pokemonDefaultSprite);
