@@ -1,6 +1,4 @@
 
-
-<p>{{values}}</p>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -8,7 +6,7 @@
             <p>Uma exibição de consumo de API Rest pública para demonstração de conhecimento técnico.</p>
             <div class="form-group bg-light px-4 py-2">
                 <label class="label" for="qtdPage">Exibir Quantidade De Pokemons</label>
-                <select id="qtdPage" class="form-control d-inline-block w-auto" (change)="SetPokemonCount()">
+                <select id="qtdPage" class="form-control d-inline-block w-auto" (change)="SetPokemonCount($event.target.value)">
                     <option value="10" selected>10</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
@@ -22,7 +20,7 @@
             </div>
         </div>
         <div class="col-12 col-md-3" *ngFor="let pokemons of Pokemons.results">
-            <a href="{{pokemons.url}}" class="card">
+            <a href="{{pokemons.url}}" class="card mb-4">
                 <div class="card-header bg--{{pokemons?.informations?.types[0]}} text-light">
                     <h4 class="card-title mb-0">
                         <span class="badge small badge-light badge-pill">{{pokemons?.informations?.id}}</span>

@@ -16,12 +16,12 @@ export class PokemonListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadPokemons();
+    this.loadPokemons(0, 10);
     //console.log(this.Pokemon);
   }
   // Get Pokemons list
-  async loadPokemons() {
-    return this.restApi.listPokemons(0, 5).subscribe((data: {}) => {
+  async loadPokemons(init, limit) {
+    return this.restApi.listPokemons(init, limit).subscribe((data: {}) => {
       this.Pokemons = data;
       console.log(this.Pokemons);
 
@@ -69,9 +69,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   //Set value to pagination
-  values = '';
-
-  SetPokemonCount(values) {
-    console.log(values)
+  SetPokemonCount(max) {
+    this.loadPokemons(0, max);
   }
 }

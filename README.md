@@ -1,6 +1,15 @@
-# ServiceConsuming
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+# ServiceConsuming teste com PokeAPI
+
+Projeto para apresentação de teste de lógica e frontend em Angular. 
+
+Items que ficaram pendentes de implementação:
+
+* Filtragem dos cards com busca de texto
+* Paginação para exibição de todos os cards possíveis
+* Seleção de idioma de forma dinâmica (alterando o idioma padrão e trazendo o texto através da sigla)
+* Loading para os cards
+* Tela de detalhe do Pokemon, com todos os seus atributos e sprites
 
 ## Development server
 
