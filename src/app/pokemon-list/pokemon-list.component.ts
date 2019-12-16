@@ -39,8 +39,14 @@ export class PokemonListComponent implements OnInit {
         pokemonList.push(sumId, pokemon.name, pokemon.sprites, pokemon.types );
         
         let pokemonInfo = await this.restApi.getPokemon(sumId);
+        let pokemonDetail = await this.restApi.getPokemonDetail(sumId);
+
+        console.log("detail: ", pokemonDetail);
 
         pokemon['informations'] = pokemonInfo;
+        pokemon['detail'] = pokemonDetail;
+
+        console.log(pokemon['detail']);
 
         function defaultSprite(pokemonSprite) { 
           return pokemonSprite.name === 'front_default';

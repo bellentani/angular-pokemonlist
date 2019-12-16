@@ -35,7 +35,7 @@ export class RestApiService {
     var response:any = await this.http.get(`${this.apiURL}pokemon/${id}/`)
       .toPromise();
 
-      console.log(id);
+      //console.log(id);
       //let response = JSON.parse(JSON.stringify(res._body || null ));
       let pokemon = new Pokemon();
 
@@ -66,6 +66,22 @@ export class RestApiService {
       return pokemon;
  
       //});
+  }
+
+  //Get Hability
+  async getPokemonDetail(id: number) {
+    var response:any = await this.http.get(`${this.apiURL}pokemon-species/${id}/`)
+      .toPromise();
+
+    let pokemonDetail = new Pokemon();
+    console.log(pokemonDetail);
+
+    pokemonDetail.flavor_text_entries = response.flavor_text_entries[1];
+    pokemonDetail.id = response.id;
+
+    //console.log('service: ', pokemonDetail, ' - Outro:', pokemonDetail.flavor_text_entries);
+
+    return pokemonDetail;
   }
   
   // Error handling 

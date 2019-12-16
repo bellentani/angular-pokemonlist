@@ -20,16 +20,24 @@
     <option value="100">100</option>
 </select>
 <p>{{values}}</p>
-<ul>
-
-
-    <li *ngFor="let pokemons of Pokemons.results">
-        <a href="{{pokemons.url}}">
-            <b>{{pokemons?.id}}</b> <!--{{pokemons?.name}}--> {{pokemons?.informations?.name | titlecase }}
-            <ng-container *ngIf="pokemons.informations != null">
-                <img [src]="pokemons?.default_sprite?.imagePath" [alt]="pokemons?.informations?.name | titlecase">
-                <!-- <img *ngFor="let sprite of pokemons.informations.sprites; let i = index" [src]="pokemons?.informations?.sprites[i]?.imagePath" alt=""> -->
-            </ng-container>
-        </a>
-    </li>
-</ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-3" *ngFor="let pokemons of Pokemons.results">
+            <a  href="{{pokemons.url}}" class="card">
+                <div class="card-header">
+                    <h4 class="card-title">
+                        <span class="badge badge-xs badge-pill">{{pokemons?.informations?.id}}</span>{{pokemons?.informations?.name | titlecase }}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <ng-container *ngIf="pokemons.informations != null">
+                        <img [src]="pokemons?.default_sprite?.imagePath" [alt]="pokemons?.informations?.name | titlecase">
+                        <p><b>Description:</b> {{pokemons?.detail?.flavor_text_entries?.flavor_text}}</p>
+                        <!-- <img *ngFor="let sprite of pokemons.informations.sprites; let i = index" [src]="pokemons?.informations?.sprites[i]?.imagePath" alt=""> -->
+                    </ng-container>
+                </div>
+                <div class="card-footer"></div>
+            </a>
+        </div>
+    </div>
+</div>
