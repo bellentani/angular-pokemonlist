@@ -23,7 +23,7 @@ export class PokemonListComponent implements OnInit {
   async loadPokemons(init, limit) {
     return this.restApi.listPokemons(init, limit).subscribe((data: {}) => {
       this.Pokemons = data;
-      console.log(this.Pokemons);
+      //console.log(this.Pokemons);
 
       const pokemonList = [];
       
@@ -32,8 +32,8 @@ export class PokemonListComponent implements OnInit {
         //let newId = parseInt(id);
         let sumId = index+1;
         
-        console.log('id: ', sumId); // the name of the current key.
-        console.log('name: ', pokemon.name); // the value of the current key.
+        //console.log('id: ', sumId); // the name of the current key.
+        //console.log('name: ', pokemon.name); // the value of the current key.
         //console.log('sprite default: ', spriteDefault); // the value of the current key.
 
         pokemonList.push(sumId, pokemon.name, pokemon.sprites, pokemon.types );
@@ -41,12 +41,12 @@ export class PokemonListComponent implements OnInit {
         let pokemonInfo = await this.restApi.getPokemon(sumId);
         let pokemonDetail = await this.restApi.getPokemonDetail(sumId);
 
-        console.log("detail: ", pokemonDetail);
+        //console.log("detail: ", pokemonDetail);
 
         pokemon['informations'] = pokemonInfo;
         pokemon['detail'] = pokemonDetail;
 
-        console.log(pokemon['detail']);
+        //console.log(pokemon['detail']);
 
         function defaultSprite(pokemonSprite) { 
           return pokemonSprite.name === 'front_default';
@@ -55,7 +55,7 @@ export class PokemonListComponent implements OnInit {
         const pokemonDefaultSprite = pokemonInfo.sprites.find(defaultSprite);
 
         pokemon['default_sprite'] = pokemonDefaultSprite;
-        console.log(pokemonDefaultSprite);
+        //console.log(pokemonDefaultSprite);
         
         // const entries = Object.entries(val);
         
@@ -64,7 +64,7 @@ export class PokemonListComponent implements OnInit {
         //   console.log(name, url)
         // }
       });
-      console.log(this.Pokemons.results);
+      //console.log(this.Pokemons.results);
     })
   }
 

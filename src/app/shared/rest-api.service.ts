@@ -39,7 +39,7 @@ export class RestApiService {
       //let response = JSON.parse(JSON.stringify(res._body || null ));
       let pokemon = new Pokemon();
 
-      console.log(pokemon);
+      //console.log(pokemon);
       pokemon.name = response.name;
       pokemon.id = response.id;
 
@@ -74,7 +74,7 @@ export class RestApiService {
       .toPromise();
 
     let pokemonDetail = new Pokemon();
-    console.log(pokemonDetail);
+    //console.log(pokemonDetail);
 
     pokemonDetail.flavor_text_entries = response.flavor_text_entries[1];
     pokemonDetail.id = response.id;
